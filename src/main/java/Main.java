@@ -1,11 +1,19 @@
+import models.Alias;
+import models.Transaction;
+import repositories.MemoryTransactionRepository;
+import services.TransactionService;
+import validators.AliasValidator;
+import validators.TransactionValidator;
+import validators.Validator;
+
 class Main {
     public static void main(String[] args) {
-        MemoryTransactionRepository record = new MemoryTransactionRepository(); // MemoryTransactionRepository implements TransactionRepository.
-        Validator<Transaction> transactionValidator = new TransactionValidator(); // TransactionValidator implements Validator<Transaction>.
-        Validator<Alias> aliasValidator = new AliasValidator(); // AliasValidator implements Validator<Alias>.
+        MemoryTransactionRepository record = new MemoryTransactionRepository(); // repositories.MemoryTransactionRepository implements repositories.TransactionRepository.
+        Validator<Transaction> transactionValidator = new TransactionValidator(); // validators.TransactionValidator implements validators.Validator<models.Transaction>.
+        Validator<Alias> aliasValidator = new AliasValidator(); // validators.AliasValidator implements validators.Validator<models.Alias>.
         TransactionService service = new TransactionService(record, transactionValidator, aliasValidator);
-        // TransactionService uses TransactionRepository, Validator<Transaction>, and Validator<Alias>.
-        // TransactionService follows the Dependency Inversion Principle.
+        // services.TransactionService uses repositories.TransactionRepository, validators.Validator<models.Transaction>, and validators.Validator<models.Alias>.
+        // services.TransactionService follows the Dependency Inversion Principle.
 
         Alias karam = new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "Karam");
         Alias jebreen = new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "Jebreen");
@@ -24,3 +32,4 @@ class Main {
         System.out.println(service.getAllTransactions());
     }
 }
+

@@ -1,11 +1,19 @@
+package services;
+
+import models.Alias;
+import models.Transaction;
+import repositories.TransactionRepository;
+import validators.Validator;
+
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class TransactionService {
-    private TransactionRepository repository;
-    private Validator<Transaction> transactionValidator;
-    private Validator<Alias> aliasValidator;
+    private final TransactionRepository repository;
+    private final Validator<Transaction> transactionValidator;
+    private final Validator<Alias> aliasValidator;
 
     public TransactionService(TransactionRepository repository, Validator<Transaction> transactionValidator, Validator<Alias> aliasValidator) {
         this.repository = repository;
@@ -18,6 +26,16 @@ public class TransactionService {
         aliasValidator.validate(transaction.getDebtor());
         transactionValidator.validate(transaction);
         repository.add(transaction);
+    }
+
+    public void removeTransaction(Transaction transaction) {
+        for (Transaction t : repository.getAllTransactions()) {
+            if (Objects.equals(t.getDebtor().value(), transaction.getDebtor().value()) && Objects.equals(t.getCreditor().value(), transaction.getCreditor().value())
+                    && t.getAmount() == transaction.getAmount() && t.getCurrency().equals(transaction.getCurrency()) && t.getPurpose().equals(transaction.getPurpose())) {
+                repository.remove(t);
+                return;
+            }
+        }
     }
 
     public List<Transaction> getTransactionsByAlias(Alias alias) {

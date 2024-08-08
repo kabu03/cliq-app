@@ -1,3 +1,7 @@
+package repositories;
+
+import models.Transaction;
+
 import java.util.List;
 
 public interface TransactionRepository {

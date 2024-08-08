@@ -1,3 +1,7 @@
+package validators;
+
+import models.Alias;
+
 public class AliasValidator implements Validator<Alias> {
 
     public void validate(Alias alias) {

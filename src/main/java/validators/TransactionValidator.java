@@ -1,3 +1,7 @@
+package validators;
+
+import models.Transaction;
+
 public class TransactionValidator implements Validator<Transaction> {
     public void validate(Transaction transaction) {
         if (transaction.getDebtor() == null) {

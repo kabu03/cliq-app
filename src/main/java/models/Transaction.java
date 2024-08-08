@@ -1,5 +1,16 @@
+package models;
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.util.Date;
 
+@Setter
+@Getter
+@EqualsAndHashCode
+@ToString
 public class Transaction {
     private final Alias debtor;
     private final Alias creditor;
@@ -19,7 +30,7 @@ public class Transaction {
 
     @Override
     public String toString() {
-        return "Transaction Details {" +
+        return "models.Transaction Details {" +
                 "debtor=" + debtor.value() +
                 ", creditor=" + creditor.value() +
                 ", amount=" + amount +
@@ -28,31 +39,6 @@ public class Transaction {
                 ", timestamp=" + timestamp +
                 " }";
     }
-
-    public Alias getDebtor() {
-        return debtor;
-    }
-
-    public Alias getCreditor() {
-        return creditor;
-    }
-
-    public double getAmount() {
-        return amount;
-    }
-
-    public Currency getCurrency() {
-        return currency;
-    }
-
-    public String getPurpose() {
-        return purpose;
-    }
-
-    public Date getTimestamp() {
-        return timestamp;
-    }
-
 
     public enum Currency {
         JOD, USD, EUR, GBP, HUF// Add other allowed currencies
