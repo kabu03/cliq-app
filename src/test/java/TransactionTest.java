@@ -3,6 +3,7 @@ import models.Transaction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import repositories.MemoryTransactionRepository;
+import services.MemoryTransactionService;
 import services.TransactionService;
 import validators.AliasValidator;
 import validators.TransactionValidator;
@@ -13,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TransactionTest {
     private MemoryTransactionRepository repository;
-    private TransactionService service;
+    private MemoryTransactionService service;
     private Validator<Transaction> transactionValidator;
     private Validator<Alias> aliasValidator;
 
@@ -22,7 +23,7 @@ public class TransactionTest {
         this.repository = new MemoryTransactionRepository();
         this.transactionValidator = new TransactionValidator();
         this.aliasValidator = new AliasValidator();
-        this.service = new TransactionService(repository, transactionValidator, aliasValidator);
+        this.service = new MemoryTransactionService(repository, transactionValidator, aliasValidator);
     }
 
     @Test
@@ -84,7 +85,7 @@ public class TransactionTest {
         assertEquals("Amount must be greater than 0.", exception.getMessage());
 
         exception = assertThrows(IllegalArgumentException.class, () -> {
-            Transaction transaction = new Transaction(new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "karam"), new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "jebreen"), 100.0, Transaction.Currency.USD, "kong", null);
+            Transaction transaction = new Transaction(new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "karam"), new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "jebreen"), 100.0, Transaction.Currency.USD, null, null);
             validator.validate(transaction);
         });
         assertEquals("Purpose cannot be null.", exception.getMessage());

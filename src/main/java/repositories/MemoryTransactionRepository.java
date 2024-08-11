@@ -16,19 +16,12 @@ public class MemoryTransactionRepository implements TransactionRepository {
     public void add(Transaction transaction) {
         transactions.add(transaction);
         int newId = idCounter++;
-        transaction.setTransactionId(newId);
+        transaction.setId(newId);
     }
 
     public void remove(int transactionID) {
         transactions.remove(transactionID);
     }
 
-    public List<Transaction> getAllTransactions() {
-        return new ArrayList<>(transactions);
-    }
-
-    public void printAllTransactions() {
-        transactions.forEach(System.out::println);
-    }
 
 }

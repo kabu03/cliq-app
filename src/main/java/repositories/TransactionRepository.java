@@ -10,8 +10,4 @@ public interface TransactionRepository {
 
     void remove(int transactionID);
 
-    List<Transaction> getAllTransactions();
-
-    void printAllTransactions();
-
 }
