@@ -31,8 +31,8 @@ public class TransactionTest {
         Alias karam = new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "karam");
         Alias jebreen = new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "jebreen");
 
-        Transaction t1 = new Transaction(karam, jebreen, 100.0, Transaction.Currency.USD, "Payment");
-        Transaction t2 = new Transaction(jebreen, karam, 200.0, Transaction.Currency.EUR, "Invoice");
+        Transaction t1 = new Transaction(karam, jebreen, 100.0, Transaction.Currency.USD, "Payment", null);
+        Transaction t2 = new Transaction(jebreen, karam, 200.0, Transaction.Currency.EUR, "Invoice", null);
         repository.add(t1);
         repository.add(t2);
         assertEquals(2, repository.transactions.size());
@@ -45,9 +45,9 @@ public class TransactionTest {
         Alias karam = new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "karam");
         Alias jebreen = new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "jebreen");
 
-        Transaction t1 = new Transaction(karam, jebreen, 100.0, Transaction.Currency.USD, "Payment");
-        Transaction t2 = new Transaction(jebreen, karam, 200.0, Transaction.Currency.EUR, "Invoice");
-        Transaction t3 = new Transaction(karam, jebreen, 500.0, Transaction.Currency.EUR, "Invoice");
+        Transaction t1 = new Transaction(karam, jebreen, 100.0, Transaction.Currency.USD, "Payment", null);
+        Transaction t2 = new Transaction(jebreen, karam, 200.0, Transaction.Currency.EUR, "Invoice", null);
+        Transaction t3 = new Transaction(karam, jebreen, 500.0, Transaction.Currency.EUR, "Invoice", null);
         repository.add(t1);
         repository.add(t2);
         repository.add(t3);
@@ -78,31 +78,31 @@ public class TransactionTest {
         TransactionValidator validator = new TransactionValidator();
 
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            Transaction transaction = new Transaction(new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "karam"), new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "jebreen"), -100.0, Transaction.Currency.USD, "Payment");
+            Transaction transaction = new Transaction(new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "karam"), new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "jebreen"), -100.0, Transaction.Currency.USD, "Payment", null);
             validator.validate(transaction);
         });
         assertEquals("Amount must be greater than 0.", exception.getMessage());
 
         exception = assertThrows(IllegalArgumentException.class, () -> {
-            Transaction transaction = new Transaction(new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "karam"), new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "jebreen"), 100.0, Transaction.Currency.USD, null);
+            Transaction transaction = new Transaction(new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "karam"), new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "jebreen"), 100.0, Transaction.Currency.USD, "kong", null);
             validator.validate(transaction);
         });
         assertEquals("Purpose cannot be null.", exception.getMessage());
 
         exception = assertThrows(IllegalArgumentException.class, () -> {
-            Transaction transaction = new Transaction(new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "karam"), new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "jebreen"), 100.0, null, "Payment");
+            Transaction transaction = new Transaction(new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "karam"), new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "jebreen"), 100.0, null, "Payment", null);
             validator.validate(transaction);
         });
         assertEquals("Currency cannot be null.", exception.getMessage());
 
         exception = assertThrows(IllegalArgumentException.class, () -> {
-            Transaction transaction = new Transaction(new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "karam"), null, 100.0, Transaction.Currency.USD, "Payment");
+            Transaction transaction = new Transaction(new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "karam"), null, 100.0, Transaction.Currency.USD, "Payment", null);
             validator.validate(transaction);
         });
         assertEquals("Creditor cannot be null.", exception.getMessage());
 
         exception = assertThrows(IllegalArgumentException.class, () -> {
-            Transaction transaction = new Transaction(null, new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "jebreen"), 100.0, Transaction.Currency.USD, "Payment");
+            Transaction transaction = new Transaction(null, new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "jebreen"), 100.0, Transaction.Currency.USD, "Payment", null);
             validator.validate(transaction);
         });
         assertEquals("Debtor cannot be null.", exception.getMessage());

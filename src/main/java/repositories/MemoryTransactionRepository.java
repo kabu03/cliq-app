@@ -7,6 +7,7 @@ import java.util.List;
 
 public class MemoryTransactionRepository implements TransactionRepository {
     public List<Transaction> transactions;
+    private static int idCounter = 1;
 
     public MemoryTransactionRepository() {
         this.transactions = new ArrayList<>();
@@ -14,10 +15,12 @@ public class MemoryTransactionRepository implements TransactionRepository {
 
     public void add(Transaction transaction) {
         transactions.add(transaction);
+        int newId = idCounter++;
+        transaction.setTransactionId(newId);
     }
 
-    public void remove(Transaction transaction) {
-        transactions.remove(transaction);
+    public void remove(int transactionID) {
+        transactions.remove(transactionID);
     }
 
     public List<Transaction> getAllTransactions() {

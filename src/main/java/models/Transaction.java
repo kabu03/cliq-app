@@ -10,8 +10,8 @@ import java.util.Date;
 @Setter
 @Getter
 @EqualsAndHashCode
-@ToString
 public class Transaction {
+    private int transactionId;
     private final Alias debtor;
     private final Alias creditor;
     private final double amount;
@@ -19,13 +19,17 @@ public class Transaction {
     private final String purpose;
     private final Date timestamp;
 
-    public Transaction(Alias debtor, Alias creditor, double amount, Currency currency, String purpose) {
+    public Transaction(Alias debtor, Alias creditor, double amount, Currency currency, String purpose, Date timestamp) {
         this.debtor = debtor;
         this.creditor = creditor;
         this.amount = amount;
         this.currency = currency;
         this.purpose = purpose;
-        this.timestamp = new Date();
+        if (timestamp != null) {
+            this.timestamp = timestamp;
+        } else {
+            this.timestamp = new Date();
+        }
     }
 
     @Override

@@ -28,11 +28,10 @@ public class TransactionService {
         repository.add(transaction);
     }
 
-    public void removeTransaction(Transaction transaction) {
+    public void removeTransaction(int transactionID) {
         for (Transaction t : repository.getAllTransactions()) {
-            if (Objects.equals(t.getDebtor().value(), transaction.getDebtor().value()) && Objects.equals(t.getCreditor().value(), transaction.getCreditor().value())
-                    && t.getAmount() == transaction.getAmount() && t.getCurrency().equals(transaction.getCurrency()) && t.getPurpose().equals(transaction.getPurpose())) {
-                repository.remove(t);
+            if (Objects.equals(t.getTransactionId(), transactionID)) {
+                repository.remove(transactionID);
                 return;
             }
         }
