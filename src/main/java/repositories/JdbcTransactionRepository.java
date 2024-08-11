@@ -1,5 +1,6 @@
 package repositories;
 
+import lombok.Getter;
 import models.Alias;
 import models.Transaction;
 import services.DatabaseConnection;
@@ -12,13 +13,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class DatabaseTransactionRepository implements TransactionRepository {
+public class JdbcTransactionRepository implements TransactionRepository {
 
     private static int idCounter = 1; // Static counter to generate unique IDs
     private final String tableName;
-
-    public DatabaseTransactionRepository(String tableName) {
+    @Getter
+    private final DatabaseConnection databaseConnection;
+    public JdbcTransactionRepository(String tableName, DatabaseConnection databaseConnection) {
         this.tableName = tableName;
+        this.databaseConnection = databaseConnection;
     }
 
     @Override
@@ -28,7 +31,7 @@ public class DatabaseTransactionRepository implements TransactionRepository {
         String insertSQL = String.format(
                 "INSERT INTO %s (transaction_id, debtor, debtor_type, creditor, creditor_type, amount, currency, purpose, timestamp)" +
                         " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", tableName);
-        try (Connection connection = DatabaseConnection.getConnection();
+        try (Connection connection = databaseConnection.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(insertSQL)) {
             pstmt.setInt(1, transaction.getTransactionId());
             pstmt.setString(2, transaction.getDebtor().value());
@@ -48,7 +51,7 @@ public class DatabaseTransactionRepository implements TransactionRepository {
     @Override
     public void remove(int transactionId) {
         String deleteSQL = String.format("DELETE FROM %s WHERE transaction_id = ?", tableName);
-        try (Connection connection = DatabaseConnection.getConnection();
+        try (Connection connection = databaseConnection.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(deleteSQL)) {
             pstmt.setInt(1, transactionId);
             int affectedRows = pstmt.executeUpdate();
@@ -92,7 +95,7 @@ public class DatabaseTransactionRepository implements TransactionRepository {
             querySQL = String.format("SELECT * FROM %s WHERE debtor = ?", tableName);
         }
 
-        try (Connection connection = DatabaseConnection.getConnection();
+        try (Connection connection = databaseConnection.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(querySQL)) {
             if (alias != null) {
                 pstmt.setString(1, alias.value());
@@ -121,4 +124,5 @@ public class DatabaseTransactionRepository implements TransactionRepository {
     public void printAllTransactions() {
         getAllTransactions().forEach(System.out::println);
     }
+
 }

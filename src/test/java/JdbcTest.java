@@ -1,7 +1,12 @@
+// APPLY HIBERNATE
+// Tests without connection, using Mocking and Stubbing
+// concurrency, reflection API
+
+
 import org.junit.jupiter.api.*;
 import models.Alias;
 import models.Transaction;
-import repositories.DatabaseTransactionRepository;
+import repositories.JdbcTransactionRepository;
 import services.DatabaseConnection;
 
 import java.sql.Connection;
@@ -10,14 +15,15 @@ import java.sql.Statement;
 import java.util.Date;
 import java.util.List;
 
-public class DatabaseTest {
+public class JdbcTest {
 
-    private DatabaseTransactionRepository repository;
+    private JdbcTransactionRepository repository;
 
     @BeforeEach
     public void setUp() {
-        repository = new DatabaseTransactionRepository("transactionsTest");
-        try (Connection connection = DatabaseConnection.getConnection();
+        DatabaseConnection databaseConnection = new DatabaseConnection();
+        repository = new JdbcTransactionRepository("transactionsTest", databaseConnection);
+        try (Connection connection = databaseConnection.getConnection();
              Statement stmt = connection.createStatement()) {
             stmt.execute("TRUNCATE TABLE transactionsTest RESTART IDENTITY CASCADE");
         } catch (SQLException e) {
@@ -129,7 +135,7 @@ public class DatabaseTest {
     @AfterEach
     public void tearDown() {
         // Clean up after tests if necessary
-        try (Connection connection = DatabaseConnection.getConnection();
+        try (Connection connection = repository.getDatabaseConnection().getConnection();
              Statement stmt = connection.createStatement()) {
             stmt.execute("TRUNCATE TABLE transactionsTest RESTART IDENTITY CASCADE");
         } catch (SQLException e) {
