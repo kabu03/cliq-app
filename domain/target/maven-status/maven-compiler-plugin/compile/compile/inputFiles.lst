@@ -4,3 +4,4 @@
 /home/karamabujudom/IdeaProjects/CliqApp/domain/src/main/java/validators/Validator.java
 /home/karamabujudom/IdeaProjects/CliqApp/domain/src/main/java/validators/AliasValidator.java
 /home/karamabujudom/IdeaProjects/CliqApp/domain/src/main/java/models/Transaction.java
+/home/karamabujudom/IdeaProjects/CliqApp/domain/src/main/java/validators/CurrencyValidator.java

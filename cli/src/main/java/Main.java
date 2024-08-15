@@ -1,4 +1,3 @@
-package main.java;
 
 import models.TransactionRepository;
 import repositories.DatabaseConnection;
@@ -11,6 +10,7 @@ import requests.TransactionRequest;
 import services.*;
 import usecases.*;
 import validators.AliasValidator;
+import validators.CurrencyValidator;
 import validators.TransactionValidator;
 
 import java.util.Scanner;
@@ -96,6 +96,7 @@ class Main {
     public static void mainMenu(Scanner sc, TransactionRepository repository) {
         TransactionValidator transactionValidator = new TransactionValidator();
         AliasValidator aliasValidator = new AliasValidator();
+        CurrencyValidator currencyValidator = new CurrencyValidator();
         String aliasType;
         String aliasValue;
         System.out.println("What would you like to do?");
@@ -133,7 +134,7 @@ class Main {
                 TransactionRequest tr = new TransactionRequest(senderAliasType, senderAliasValue,
                         receiverAliasType, receiverAliasValue, amount, currency, purpose, null);
                 AddTransactionService addTransactionService =
-                        new AddTransactionService(new AddTransactionUseCase(repository, transactionValidator, aliasValidator), tr);
+                        new AddTransactionService(new AddTransactionUseCase(repository, transactionValidator, aliasValidator, currencyValidator), tr);
                 System.out.println(addTransactionService.processRequest());
                 break;
             case 2:

@@ -37,35 +37,35 @@ public class ValidatorsTest {
 
     @Test
     public void testInvalidTransaction() {
-        TransactionValidator validator = new TransactionValidator();
+
 
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             Transaction transaction = new Transaction(new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "karam"), new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "jebreen"), -100.0, "USD", "Payment", null);
-            validator.validate(transaction);
+            transactionValidator.validate(transaction);
         });
         assertEquals("Amount must be greater than 0.", exception.getMessage());
 
         exception = assertThrows(IllegalArgumentException.class, () -> {
             Transaction transaction = new Transaction(new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "karam"), new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "jebreen"), 100.0, "USD", null, null);
-            validator.validate(transaction);
+            transactionValidator.validate(transaction);
         });
         assertEquals("Purpose cannot be null.", exception.getMessage());
 
         exception = assertThrows(IllegalArgumentException.class, () -> {
             Transaction transaction = new Transaction(new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "karam"), new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "jebreen"), 100.0, null, "Payment", null);
-            validator.validate(transaction);
+            transactionValidator.validate(transaction);
         });
         assertEquals("Currency cannot be null.", exception.getMessage());
 
         exception = assertThrows(IllegalArgumentException.class, () -> {
             Transaction transaction = new Transaction(new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "karam"), null, 100.0, "USD", "Payment", null);
-            validator.validate(transaction);
+            transactionValidator.validate(transaction);
         });
         assertEquals("Creditor cannot be null.", exception.getMessage());
 
         exception = assertThrows(IllegalArgumentException.class, () -> {
             Transaction transaction = new Transaction(null, new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "jebreen"), 100.0, "USD", "Payment", null);
-            validator.validate(transaction);
+            transactionValidator.validate(transaction);
         });
         assertEquals("Debtor cannot be null.", exception.getMessage());
     }
