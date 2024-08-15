@@ -21,8 +21,8 @@ public class MemoryTransactionRepositoryTest {
         Alias karam = new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "karam");
         Alias jebreen = new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "jebreen");
 
-        Transaction t1 = new Transaction(karam, jebreen, 100.0, Transaction.Currency.USD, "Payment", null);
-        Transaction t2 = new Transaction(jebreen, karam, 200.0, Transaction.Currency.EUR, "Invoice", null);
+        Transaction t1 = new Transaction(karam, jebreen, 100.0, "USD", "Payment", null);
+        Transaction t2 = new Transaction(jebreen, karam, 200.0, "EUR", "Invoice", null);
         repository.add(t1);
         repository.add(t2);
         assertEquals(2, repository.transactions.size());
@@ -35,9 +35,9 @@ public class MemoryTransactionRepositoryTest {
         Alias karam = new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "karam");
         Alias jebreen = new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "jebreen");
 
-        Transaction t1 = new Transaction(karam, jebreen, 100.0, Transaction.Currency.USD, "Payment", null);
-        Transaction t2 = new Transaction(jebreen, karam, 200.0, Transaction.Currency.EUR, "Invoice", null);
-        Transaction t3 = new Transaction(karam, jebreen, 500.0, Transaction.Currency.EUR, "Invoice", null);
+        Transaction t1 = new Transaction(karam, jebreen, 100.0, "USD", "Payment", null);
+        Transaction t2 = new Transaction(jebreen, karam, 200.0, "EUR", "Invoice", null);
+        Transaction t3 = new Transaction(karam, jebreen, 500.0, "EUR", "Invoice", null);
         repository.add(t1);
         repository.add(t2);
         repository.add(t3);

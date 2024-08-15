@@ -3,6 +3,7 @@ import models.Transaction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import validators.AliasValidator;
+import validators.CurrencyValidator;
 import validators.TransactionValidator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -11,11 +12,13 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class ValidatorsTest {
     private AliasValidator aliasValidator;
     private TransactionValidator transactionValidator;
+    private CurrencyValidator currencyValidator;
 
     @BeforeEach
     public void setUp() {
         aliasValidator = new AliasValidator();
         transactionValidator = new TransactionValidator();
+        currencyValidator = new CurrencyValidator();
     }
 
     @Test
@@ -37,13 +40,13 @@ public class ValidatorsTest {
         TransactionValidator validator = new TransactionValidator();
 
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            Transaction transaction = new Transaction(new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "karam"), new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "jebreen"), -100.0, Transaction.Currency.USD, "Payment", null);
+            Transaction transaction = new Transaction(new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "karam"), new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "jebreen"), -100.0, "USD", "Payment", null);
             validator.validate(transaction);
         });
         assertEquals("Amount must be greater than 0.", exception.getMessage());
 
         exception = assertThrows(IllegalArgumentException.class, () -> {
-            Transaction transaction = new Transaction(new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "karam"), new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "jebreen"), 100.0, Transaction.Currency.USD, null, null);
+            Transaction transaction = new Transaction(new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "karam"), new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "jebreen"), 100.0, "USD", null, null);
             validator.validate(transaction);
         });
         assertEquals("Purpose cannot be null.", exception.getMessage());
@@ -55,15 +58,23 @@ public class ValidatorsTest {
         assertEquals("Currency cannot be null.", exception.getMessage());
 
         exception = assertThrows(IllegalArgumentException.class, () -> {
-            Transaction transaction = new Transaction(new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "karam"), null, 100.0, Transaction.Currency.USD, "Payment", null);
+            Transaction transaction = new Transaction(new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "karam"), null, 100.0, "USD", "Payment", null);
             validator.validate(transaction);
         });
         assertEquals("Creditor cannot be null.", exception.getMessage());
 
         exception = assertThrows(IllegalArgumentException.class, () -> {
-            Transaction transaction = new Transaction(null, new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "jebreen"), 100.0, Transaction.Currency.USD, "Payment", null);
+            Transaction transaction = new Transaction(null, new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "jebreen"), 100.0, "USD", "Payment", null);
             validator.validate(transaction);
         });
         assertEquals("Debtor cannot be null.", exception.getMessage());
+    }
+
+    @Test
+    public void testInvalidCurrency() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            currencyValidator.validate("invalid_currency");
+        });
+        assertEquals("Invalid currency: invalid_currency The allowed currencies are: JOD, USD, EUR, GBP, HUF.", exception.getMessage());
     }
 }

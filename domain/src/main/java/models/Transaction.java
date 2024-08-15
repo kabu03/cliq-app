@@ -14,11 +14,21 @@ import java.util.Objects;
 @Table(name = "transactions")
 @Entity
 public class Transaction {
+    @Column(name = "amount")
+    private final double amount;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "currency")
+    private final String currency;
+    @Column(name = "purpose")
+    private final String purpose;
+    @Column(name = "timestamp")
+    @Temporal(TemporalType.TIMESTAMP)
+    private final Date timestamp;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id; // Database primary key
-//    @Column(name = "transaction_id", unique = true, nullable = false)
+    //    @Column(name = "transaction_id", unique = true, nullable = false)
 //    private int transactionId;  // Code-handled ID
     @Embedded
     @AttributeOverrides({
@@ -32,19 +42,9 @@ public class Transaction {
             @AttributeOverride(name = "value", column = @Column(name = "creditor_value"))
     })
     private Alias creditor;
-    @Column(name = "amount")
-    private final double amount;
-    @Enumerated(EnumType.STRING)
-    @Column(name = "currency")
-    private final Currency currency;
-    @Column(name = "purpose")
-    private final String purpose;
-    @Column(name = "timestamp")
-    @Temporal(TemporalType.TIMESTAMP)
-    private final Date timestamp;
 
 
-    public Transaction(Alias debtor, Alias creditor, double amount, Currency currency, String purpose, Date timestamp) {
+    public Transaction(Alias debtor, Alias creditor, double amount, String currency, String purpose, Date timestamp) {
         this.debtor = debtor;
         this.creditor = creditor;
         this.amount = amount;
@@ -57,7 +57,7 @@ public class Transaction {
         this.debtor = new Alias();
         this.creditor = new Alias();
         this.amount = 0;
-        this.currency = Currency.JOD;
+        this.currency = "JOD";
         this.purpose = "";
         this.timestamp = new Date();
     }
@@ -74,14 +74,16 @@ public class Transaction {
                 " }";
     }
 
-    public enum Currency {
-        JOD, USD, EUR, GBP, HUF// Add other allowed currencies
-    }
 
     public Alias getCreditor() {
         return creditor;
     }
+
     public Alias getDebtor() {
         return debtor;
+    }
+
+    public String getCurrency() {
+        return currency;
     }
 }

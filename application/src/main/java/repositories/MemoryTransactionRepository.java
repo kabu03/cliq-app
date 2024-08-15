@@ -72,7 +72,7 @@ public class MemoryTransactionRepository implements TransactionRepository {
         return outwardTransactions;
     }
 
-    public List<Transaction> filterTransactions(Date startDate, Date endDate, double minAmount, double maxAmount, Transaction.Currency currency) {
+    public List<Transaction> filterTransactions(Date startDate, Date endDate, double minAmount, double maxAmount, String currency) {
         return getAllTransactions().stream().filter(transaction -> !transaction.getTimestamp().before(startDate) && !transaction.getTimestamp().after(endDate)).filter(transaction -> transaction.getAmount() >= minAmount && transaction.getAmount() <= maxAmount).filter(transaction -> transaction.getCurrency().equals(currency)).collect(Collectors.toList());
     }
 

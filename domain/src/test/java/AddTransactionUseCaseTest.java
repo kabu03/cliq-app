@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import models.TransactionRepository;
 import validators.AliasValidator;
+import validators.CurrencyValidator;
 import validators.TransactionValidator;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -19,20 +20,22 @@ class AddTransactionUseCaseTest {
     private TransactionValidator transactionValidator;
     private AliasValidator aliasValidator;
     private AddTransactionUseCase addTransactionUseCase;
+    private CurrencyValidator currencyValidator;
 
     @BeforeEach
     void setUp() {
         transactionRepository = Mockito.mock(TransactionRepository.class);
         transactionValidator = Mockito.mock(TransactionValidator.class);
         aliasValidator = Mockito.mock(AliasValidator.class);
-        addTransactionUseCase = new AddTransactionUseCase(transactionRepository, transactionValidator, aliasValidator);
+        currencyValidator = Mockito.mock(CurrencyValidator.class);
+        addTransactionUseCase = new AddTransactionUseCase(transactionRepository, transactionValidator, aliasValidator, currencyValidator);
     }
 
     @Test
     void shouldAddTransactionSuccessfully() {
         Transaction transaction = new Transaction(new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "KARAM"),
                 new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "TEST"),
-                        53, Transaction.Currency.HUF,
+                        53, "HUF",
                 "test", null); // initialize with valid data
 
         doNothing().when(transactionValidator).validate(transaction);
@@ -47,7 +50,7 @@ class AddTransactionUseCaseTest {
     void shouldFailToAddTransactionWhenValidationFails() {
         Transaction transaction = new Transaction(new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "KARAM"),
                 new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "TEST"),
-                -200, Transaction.Currency.HUF,
+                -200, "HUF",
                 "test", null);
 
         boolean result = addTransactionUseCase.execute(transaction);

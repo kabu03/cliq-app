@@ -41,7 +41,7 @@ public class JdbcTransactionRepositoryTest {
         // Arrange
         Alias debtor = new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "DebtorAlias");
         Alias creditor = new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "CreditorAlias");
-        Transaction transaction = new Transaction(debtor, creditor, 1000.0, Transaction.Currency.USD, "Test payment", new Date());
+        Transaction transaction = new Transaction(debtor, creditor, 1000.0, "USD", "Test payment", new Date());
 
         when(mockConnection.prepareStatement(anyString())).thenReturn(mockPreparedStatement);
 
@@ -78,7 +78,7 @@ public class JdbcTransactionRepositoryTest {
         assertEquals("DebtorAlias1", transactions.get(0).getDebtor().getValue());
         assertEquals("CreditorAlias1", transactions.get(0).getCreditor().getValue());
         assertEquals(1000.0, transactions.get(0).getAmount());
-        assertEquals(Transaction.Currency.USD, transactions.get(0).getCurrency());
+        assertEquals("USD", transactions.get(0).getCurrency());
         assertEquals("Payment 1", transactions.get(0).getPurpose());
     }
 
@@ -148,8 +148,8 @@ public class JdbcTransactionRepositoryTest {
         // Arrange
         Alias debtor = new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "DebtorAlias");
         Alias creditor = new Alias(Alias.AllowedAliasTypes.ALPHANUMERIC, "CreditorAlias");
-        Transaction transaction1 = new Transaction(debtor, creditor, 1000.0, Transaction.Currency.USD, "Payment 1", new Date());
-        Transaction transaction2 = new Transaction(debtor, creditor, 2000.0, Transaction.Currency.USD, "Payment 2", new Date());
+        Transaction transaction1 = new Transaction(debtor, creditor, 1000.0, "USD", "Payment 1", new Date());
+        Transaction transaction2 = new Transaction(debtor, creditor, 2000.0, "USD", "Payment 2", new Date());
 
         when(mockConnection.prepareStatement(anyString())).thenReturn(mockPreparedStatement);
         when(mockPreparedStatement.executeUpdate()).thenReturn(1);

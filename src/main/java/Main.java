@@ -124,7 +124,7 @@ class Main {
                 String receiverAliasValue = sc.next();
                 System.out.println("Amount:");
                 double amount = sc.nextDouble();
-                System.out.println("Currency:");
+                System.out.println("Currency (JOD, USD, EUR, GBP, HUF):");
                 String currency = sc.next();
                 System.out.println("Purpose:");
                 String purpose = sc.next();

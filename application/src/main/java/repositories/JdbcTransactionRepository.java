@@ -55,7 +55,7 @@ public class JdbcTransactionRepository implements TransactionRepository {
                     Alias creditor = new Alias(Alias.AllowedAliasTypes.valueOf(rs.getString("creditor_type")), rs.getString("creditor"));
                     double amount = rs.getDouble("amount");
                     Date timestamp = new Date(rs.getTimestamp("timestamp").getTime());
-                    Transaction.Currency currency = Transaction.Currency.valueOf(rs.getString("currency"));
+                    String currency = rs.getString("currency");
                     String purpose = rs.getString("purpose");
 
                     Transaction transaction = new Transaction(debtor, creditor, amount, currency, purpose, timestamp);
@@ -83,7 +83,7 @@ public class JdbcTransactionRepository implements TransactionRepository {
             pstmt.setString(4, transaction.getCreditor().getValue());
             pstmt.setString(5, transaction.getCreditor().getType().name());
             pstmt.setDouble(6, transaction.getAmount());
-            pstmt.setString(7, transaction.getCurrency().name());
+            pstmt.setString(7, transaction.getCurrency());
             pstmt.setString(8, transaction.getPurpose());
             pstmt.setTimestamp(9, new java.sql.Timestamp(transaction.getTimestamp().getTime()));
             int affectedRows = pstmt.executeUpdate();
@@ -156,7 +156,7 @@ public class JdbcTransactionRepository implements TransactionRepository {
                     Alias creditor = new Alias(Alias.AllowedAliasTypes.valueOf(rs.getString("creditor_type")), rs.getString("creditor"));
                     double amount = rs.getDouble("amount");
                     Date timestamp = new Date(rs.getTimestamp("timestamp").getTime());
-                    Transaction.Currency currency = Transaction.Currency.valueOf(rs.getString("currency"));
+                    String currency = rs.getString("currency");
                     String purpose = rs.getString("purpose");
                     Transaction transaction = new Transaction(debtor, creditor, amount, currency, purpose, timestamp);
                     transactions.add(transaction);
