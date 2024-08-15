@@ -4,7 +4,7 @@ import requests.TransactionIdRequest;
 import responses.Response;
 import usecases.GetTransactionByIdUseCase;
 
-public class GetTransactionByIdService {
+public class GetTransactionByIdService implements TransactionService {
 private final TransactionIdRequest transactionIdRequest;
 private final GetTransactionByIdUseCase getTransactionByIdUseCase;
 

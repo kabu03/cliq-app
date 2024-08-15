@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.Objects;
 
 @Setter
 @Getter
@@ -49,11 +50,7 @@ public class Transaction {
         this.amount = amount;
         this.currency = currency;
         this.purpose = purpose;
-        if (timestamp != null) {
-            this.timestamp = timestamp;
-        } else {
-            this.timestamp = new Date();
-        }
+        this.timestamp = Objects.requireNonNullElseGet(timestamp, Date::new);
     }
 
     public Transaction() {

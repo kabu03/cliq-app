@@ -12,7 +12,7 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-public class AddTransactionService {
+public class AddTransactionService implements TransactionService {
     private final AddTransactionUseCase addTransactionUseCase;
     private TransactionRequest request;
 

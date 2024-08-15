@@ -8,7 +8,7 @@ import usecases.GetTransactionsByAliasUseCase;
 
 import java.util.List;
 
-public class GetTransactionsByAliasService {
+public class GetTransactionsByAliasService implements TransactionService{
     private final AliasRequest aliasRequest;
     private final GetTransactionsByAliasUseCase getTransactionsByAliasUseCase;
 

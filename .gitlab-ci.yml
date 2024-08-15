@@ -1,0 +1,10 @@
+stages:
+  - test
+
+before_script:
+  - mvn clean install
+
+test-job:
+  stage: test
+  script:
+    - mvn test

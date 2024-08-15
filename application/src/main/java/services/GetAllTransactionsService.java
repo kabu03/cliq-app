@@ -8,7 +8,7 @@ import kotlin.Unit;
 
 import java.util.List;
 
-public class GetAllTransactionsService {
+public class GetAllTransactionsService implements TransactionService {
     private GetAllTransactionsUseCase getAllTransactionsUseCase;
     private Request request;
 

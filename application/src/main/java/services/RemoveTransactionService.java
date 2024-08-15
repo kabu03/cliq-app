@@ -4,7 +4,7 @@ import requests.TransactionIdRequest;
 import responses.Response;
 import usecases.RemoveTransactionUseCase;
 
-public class RemoveTransactionService {
+public class RemoveTransactionService implements TransactionService {
     private final RemoveTransactionUseCase removeTransactionUseCase;
     private final TransactionIdRequest transactionIdRequest;
 
