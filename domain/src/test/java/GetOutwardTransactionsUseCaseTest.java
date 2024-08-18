@@ -19,14 +19,12 @@ class GetOutwardTransactionsUseCaseTest {
     private TransactionRepository transactionRepository;
     private GetOutwardTransactionsUseCase getOutwardTransactionsUseCase;
     private AliasValidator aliasValidator;
-    private TransactionValidator transactionValidator;
 
     @BeforeEach
     void setUp() {
         transactionRepository = Mockito.mock(TransactionRepository.class);
         aliasValidator = Mockito.mock(AliasValidator.class);
-        transactionValidator = Mockito.mock(TransactionValidator.class);
-        getOutwardTransactionsUseCase = new GetOutwardTransactionsUseCase(transactionRepository, transactionValidator, aliasValidator);
+        getOutwardTransactionsUseCase = new GetOutwardTransactionsUseCase(transactionRepository, aliasValidator);
     }
 
     @Test

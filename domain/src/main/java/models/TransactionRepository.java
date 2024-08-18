@@ -2,9 +2,11 @@ package models;
 
 import models.Alias;
 import models.Transaction;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public interface TransactionRepository {
 
     boolean add(Transaction transaction);

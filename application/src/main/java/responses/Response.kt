@@ -31,7 +31,7 @@ data class Response(
                 result.append(", transactionList is empty")
             }
         } ?: run {
-            result.append(", transactionList is null")
+            result.append(", no list of transactions was sent.")
         }
 
         result.append(")")

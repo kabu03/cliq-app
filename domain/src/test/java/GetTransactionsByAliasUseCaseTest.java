@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import models.TransactionRepository;
+import validators.AliasValidator;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,11 +17,13 @@ class GetTransactionsByAliasUseCaseTest {
 
     private TransactionRepository transactionRepository;
     private GetTransactionsByAliasUseCase getTransactionsByAliasUseCase;
+    private AliasValidator aliasValidator;
 
     @BeforeEach
     void setUp() {
         transactionRepository = Mockito.mock(TransactionRepository.class);
-        getTransactionsByAliasUseCase = new GetTransactionsByAliasUseCase(transactionRepository);
+        aliasValidator = Mockito.mock(AliasValidator.class);
+        getTransactionsByAliasUseCase = new GetTransactionsByAliasUseCase(transactionRepository, aliasValidator);
     }
 
     @Test

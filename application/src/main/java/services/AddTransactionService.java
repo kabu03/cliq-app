@@ -22,8 +22,8 @@ public class AddTransactionService implements TransactionService {
     }
 
     public Response processRequest() {
-        Alias debtor = new Alias(Alias.AllowedAliasTypes.valueOf(request.getDebtorAliasType()), request.getDebtorAliasValue());
-        Alias creditor = new Alias(Alias.AllowedAliasTypes.valueOf(request.getCreditorAliasType()), request.getCreditorAliasValue());
+        Alias debtor = new Alias(Alias.AllowedAliasTypes.valueOf(request.getDebtorAliasType().toUpperCase()), request.getDebtorAliasValue());
+        Alias creditor = new Alias(Alias.AllowedAliasTypes.valueOf(request.getCreditorAliasType().toUpperCase()), request.getCreditorAliasValue());
         String currency = request.getCurrency();
 
         // Parsing with the simple format

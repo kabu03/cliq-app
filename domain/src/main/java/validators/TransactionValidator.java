@@ -1,7 +1,9 @@
 package validators;
 
 import models.Transaction;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TransactionValidator implements Validator<Transaction> {
     public void validate(Transaction transaction) {
         if (transaction.getDebtor() == null) {

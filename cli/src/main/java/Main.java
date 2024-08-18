@@ -162,7 +162,7 @@ class Main {
                 aliasValue = sc.next();
                 assert aliasType != null;
                 GetInwardTransactionsService getInwardTransactionsService =
-                        new GetInwardTransactionsService(new GetInwardTransactionsUseCase(repository, transactionValidator, aliasValidator), new AliasRequest(aliasType, aliasValue, null));
+                        new GetInwardTransactionsService(new GetInwardTransactionsUseCase(repository, aliasValidator), new AliasRequest(aliasType, aliasValue, null));
                 System.out.println(getInwardTransactionsService.processRequest());
                 break;
             case 5:
@@ -173,7 +173,7 @@ class Main {
                 aliasValue = sc.next();
                 assert aliasType != null;
                 GetOutwardTransactionsService getOutwardTransactionsService =
-                        new GetOutwardTransactionsService(new GetOutwardTransactionsUseCase(repository, transactionValidator, aliasValidator), new AliasRequest(aliasType, aliasValue, null));
+                        new GetOutwardTransactionsService(new GetOutwardTransactionsUseCase(repository, aliasValidator), new AliasRequest(aliasType, aliasValue, null));
                 System.out.println(getOutwardTransactionsService.processRequest());
                 break;
             case 6:
@@ -184,7 +184,7 @@ class Main {
                 aliasValue = sc.next();
                 assert aliasType != null;
                 GetTransactionsByAliasService getTransactionsByAliasService =
-                        new GetTransactionsByAliasService(new GetTransactionsByAliasUseCase(repository), new AliasRequest(aliasType, aliasValue, null));
+                        new GetTransactionsByAliasService(new GetTransactionsByAliasUseCase(repository, aliasValidator), new AliasRequest(aliasType, aliasValue, null));
                 System.out.println(getTransactionsByAliasService.processRequest());
                 break;
             case 7:

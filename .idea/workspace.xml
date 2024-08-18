@@ -5,48 +5,67 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88514ce0-4653-406d-817c-f73411807513" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/application/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/controller/AppConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/controller/TransactionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/webapp/WEB-INF/views/addTransactionForm.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/webapp/WEB-INF/views/transactions.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/application/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/target/maven-status/maven-compiler-plugin/compile/compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/target/maven-status/maven-compiler-plugin/compile/compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/application.iml" beforeDir="false" afterPath="$PROJECT_DIR$/application/application.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/controller/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/responses/Response.kt" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/responses/Response.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/services/AddTransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/services/AddTransactionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/kotlin/requests/AliasRequest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/kotlin/requests/AliasRequest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/kotlin/requests/TransactionRequest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/kotlin/requests/TransactionRequest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/classes/repositories/HibernateTransactionRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/application/target/classes/repositories/HibernateTransactionRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/classes/repositories/JdbcTransactionRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/application/target/classes/repositories/JdbcTransactionRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/classes/repositories/MemoryTransactionRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/application/target/classes/repositories/MemoryTransactionRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/classes/requests/AliasRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/application/target/classes/requests/AliasRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/classes/requests/TransactionRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/application/target/classes/requests/TransactionRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/classes/responses/Response.class" beforeDir="false" afterPath="$PROJECT_DIR$/application/target/classes/responses/Response.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/classes/services/AddTransactionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/application/target/classes/services/AddTransactionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cli/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cli/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/cli/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/target/maven-status/maven-compiler-plugin/compile/compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/cli/target/maven-status/maven-compiler-plugin/compile/compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/target/maven-status/maven-compiler-plugin/testCompile/testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/classes/usecases/AddTransactionUseCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/classes/usecases/AddTransactionUseCase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/classes/usecases/GetAllTransactionsUseCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/classes/usecases/GetAllTransactionsUseCase.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/models/Alias.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/models/Alias.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/models/TransactionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/models/TransactionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/usecases/GetInwardTransactionsUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/usecases/GetInwardTransactionsUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/usecases/GetOutwardTransactionsUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/usecases/GetOutwardTransactionsUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/usecases/GetTransactionsByAliasUseCase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/usecases/GetTransactionsByAliasUseCase.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/validators/AliasValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/validators/AliasValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/validators/CurrencyValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/validators/CurrencyValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/main/java/validators/TransactionValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/validators/TransactionValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/test/java/GetInwardTransactionsUseCaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/test/java/GetInwardTransactionsUseCaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/test/java/GetOutwardTransactionsUseCaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/test/java/GetOutwardTransactionsUseCaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/src/test/java/GetTransactionsByAliasUseCaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/test/java/GetTransactionsByAliasUseCaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/models/Alias$AllowedAliasTypes.class" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/classes/models/Alias$AllowedAliasTypes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/models/Alias.class" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/classes/models/Alias.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/models/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/classes/models/Transaction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/models/TransactionRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/classes/models/TransactionRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/target/classes/usecases/GetInwardTransactionsUseCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/classes/usecases/GetInwardTransactionsUseCase.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/target/classes/usecases/GetOutwardTransactionsUseCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/classes/usecases/GetOutwardTransactionsUseCase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/classes/usecases/GetTransactionByIdUseCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/classes/usecases/GetTransactionByIdUseCase.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/target/classes/usecases/GetTransactionsByAliasUseCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/classes/usecases/GetTransactionsByAliasUseCase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/classes/usecases/RemoveTransactionUseCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/classes/usecases/RemoveTransactionUseCase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/classes/usecases/TransactionUseCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/classes/usecases/TransactionUseCase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/domain-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/domain-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/maven-status/maven-compiler-plugin/compile/compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/maven-status/maven-compiler-plugin/compile/compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/maven-status/maven-compiler-plugin/testCompile/testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/maven-status/maven-compiler-plugin/testCompile/testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/surefire-reports/GetAllTransactionsUseCaseTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/surefire-reports/GetAllTransactionsUseCaseTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/surefire-reports/GetInwardTransactionsUseCaseTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/surefire-reports/GetInwardTransactionsUseCaseTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/surefire-reports/GetOutwardTransactionsUseCaseTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/surefire-reports/GetOutwardTransactionsUseCaseTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/surefire-reports/GetTransactionsByAliasUseCaseTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/surefire-reports/GetTransactionsByAliasUseCaseTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/surefire-reports/RemoveTransactionUseCaseTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/surefire-reports/RemoveTransactionUseCaseTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/surefire-reports/TEST-AddTransactionUseCaseTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/surefire-reports/TEST-AddTransactionUseCaseTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/surefire-reports/TEST-GetAllTransactionsUseCaseTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/surefire-reports/TEST-GetAllTransactionsUseCaseTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/surefire-reports/TEST-GetInwardTransactionsUseCaseTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/surefire-reports/TEST-GetInwardTransactionsUseCaseTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/surefire-reports/TEST-GetOutwardTransactionsUseCaseTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/surefire-reports/TEST-GetOutwardTransactionsUseCaseTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/surefire-reports/TEST-GetTransactionByIdUseCaseTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/surefire-reports/TEST-GetTransactionByIdUseCaseTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/surefire-reports/TEST-GetTransactionsByAliasUseCaseTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/surefire-reports/TEST-GetTransactionsByAliasUseCaseTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/surefire-reports/TEST-RemoveTransactionUseCaseTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/surefire-reports/TEST-RemoveTransactionUseCaseTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/surefire-reports/TEST-ValidatorsTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/surefire-reports/TEST-ValidatorsTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/surefire-reports/ValidatorsTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/surefire-reports/ValidatorsTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/validators/AliasValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/classes/validators/AliasValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/validators/CurrencyValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/classes/validators/CurrencyValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/classes/validators/TransactionValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/classes/validators/TransactionValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/test-classes/GetInwardTransactionsUseCaseTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/test-classes/GetInwardTransactionsUseCaseTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/test-classes/GetOutwardTransactionsUseCaseTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/test-classes/GetOutwardTransactionsUseCaseTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/test-classes/GetTransactionsByAliasUseCaseTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/test-classes/GetTransactionsByAliasUseCaseTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/target/test-classes/ValidatorsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/test-classes/ValidatorsTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -68,8 +87,13 @@
     "Application.Main.executor": "Run",
     "JUnit.JdbcTransactionRepositoryTest.executor": "Run",
     "JUnit.MemoryTransactionRepositoryTest.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.MainApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/karamabujudom/IdeaProjects/CliqApp/pom.xml",
@@ -79,11 +103,17 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/application/src/main/webapp/WEB-INF" />
+      <recent name="$PROJECT_DIR$/application/src/main/java/controller" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -100,7 +130,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1723963794549</updated>
-      <workItem from="1723963795569" duration="6661000" />
+      <workItem from="1723963795569" duration="23091000" />
     </task>
     <servers />
   </component>
