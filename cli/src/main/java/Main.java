@@ -68,8 +68,7 @@ class Main {
         System.out.println("1. In Memory?");
         System.out.println("2. In Database using JDBC?");
         System.out.println("3. In Database using Hibernate ORM?");
-        System.out.println("4. In File?"); // TO BE IMPLEMENTED
-        switch (getValidatedChoice(sc, new int[]{1, 2, 3, 4})) {
+        switch (getValidatedChoice(sc, new int[]{1, 2, 3})) {
             case 1:
                 System.out.println("You have chosen to perform all operations in memory.");
                 return new MemoryTransactionRepository();

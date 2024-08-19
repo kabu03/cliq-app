@@ -1,8 +1,8 @@
 package repositories;
 
+import lombok.Getter;
 import models.Alias;
 import models.Transaction;
-import lombok.Getter;
 import models.TransactionRepository;
 
 import java.sql.Connection;
@@ -66,7 +66,7 @@ public class JdbcTransactionRepository implements TransactionRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null; // Or throw an exception if preferred
+        return null;
     }
 
 
