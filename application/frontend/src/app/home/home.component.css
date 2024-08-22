@@ -1,0 +1,35 @@
+/* Home Page Styles */
+.homeTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  /*color: #4a148c;*/
+  color: DarkSlateGray;
+  text-align: center;
+}
+
+.homeParagraph {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #333;
+  text-align: center;
+  margin: 20px auto;
+  max-width: 1000px;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.homeParagraph br {
+  margin-bottom: 15px; /* Adds space between the lines */
+}
+
+/* Optional container to keep everything neatly centered */
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+}

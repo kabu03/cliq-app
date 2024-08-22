@@ -1,0 +1,26 @@
+label{
+  margin: 10px;
+}
+
+input {
+  margin: 5px;
+}
+.shiftLeft{
+  margin-left: 10px;
+}
+.aliasType{
+  margin-top: 30px;
+}
+
+.selectButton{
+  margin-top: 15px;
+}
+
+th{
+  padding-top: 50px;
+  text-align: center;
+}
+td{
+  padding: 0px 30px 70px 100px;
+  text-align: center;
+}

@@ -1,0 +1,64 @@
+<h2>Add Transaction</h2>
+<form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-group half-width">
+      <label for="debtorAliasType">Debtor Alias Type</label>
+      <select id="debtorAliasType" formControlName="debtorAliasType">
+        <option value="IBAN">IBAN</option>
+        <option value="ALPHANUMERIC">ALPHANUMERIC</option>
+        <option value="PHONE_NUMBER">PHONE NUMBER</option>
+      </select>
+    </div>
+
+    <div class="form-group half-width">
+      <label for="debtorAliasValue">Debtor Alias Value</label>
+      <input id="debtorAliasValue" type="text" formControlName="debtorAliasValue" />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group half-width">
+      <label for="creditorAliasType">Creditor Alias Type</label>
+      <select id="creditorAliasType" formControlName="creditorAliasType">
+        <option value="IBAN">IBAN</option>
+        <option value="ALPHANUMERIC">ALPHANUMERIC</option>
+        <option value="PHONE_NUMBER">PHONE NUMBER</option>
+      </select>
+    </div>
+
+    <div class="form-group half-width">
+      <label for="creditorAliasValue">Creditor Alias Value</label>
+      <input id="creditorAliasValue" type="text" formControlName="creditorAliasValue" />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group half-width">
+      <label for="amount">Amount</label>
+      <input id="amount" type="number" formControlName="amount" />
+    </div>
+
+    <div class="form-group half-width">
+      <label for="currency">Currency</label>
+      <select id="currency" formControlName="currency">
+        <option value="JOD">JOD</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="HUF">HUF</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="purpose">Purpose</label>
+    <textarea id="purpose" formControlName="purpose"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="comments">Comments</label>
+    <textarea id="comments" formControlName="comments"></textarea>
+  </div>
+
+  <button type="submit" [disabled]="transactionForm.invalid">Submit</button>
+</form>

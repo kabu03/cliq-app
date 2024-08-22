@@ -1,0 +1,106 @@
+/* Global Styles */
+* {
+  font-family: 'Roboto', Arial, sans-serif;
+
+  /*text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); !* Add this line for the text shadow *!*/
+}
+
+body {
+  background-color: #f4f4f9;
+  background-image: url('./cash.png');
+  background-size: 125%; /* Scales the background image to cover the entire page */
+  background-repeat: repeat; /* Prevents the background image from repeating */
+  background-attachment: fixed; /* Keeps the background image fixed when scrolling */
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); /* Add this line for the text shadow */
+  font-weight: bolder;
+
+  /*background-image:  radial-gradient(#444cf7 1.05px, transparent 1.05px), radial-gradient(#444cf7 1.05px, #e5e5f7 1.05px);*/
+  /*background-size: 42px 42px;*/
+  /*background-position: 0 0,21px 21px;*/
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  /*color: #4a148c;*/
+  color: DarkSlateGray;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  /*text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); !* Add a slightly stronger shadow for headings *!*/
+}
+
+a {
+  /*color: #6200ea;*/
+  color: DarkSlateGray;
+  text-decoration: none;
+  /*text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); !* Add shadow to links as well *!*/
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  /*background-color: #4a148c;*/
+  background-color: DarkSlateGray;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  /*background-color: #6200ea;*/
+  background-color: Gray;
+}
+
+input, select, textarea {
+  width: 98%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+input[type="submit"] {
+  /*background-color: #4a148c;*/
+  background-color: DarkSlateGray;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+input[type="submit"]:hover {
+  /*background-color: #6200ea;*/
+  background-color: Gray;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-2 {
+  margin-top: 20px;
+}
+
+.mb-2 {
+  margin-bottom: 20px;
+}
+
+/* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
