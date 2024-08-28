@@ -2,83 +2,58 @@
 
 <form (ngSubmit)="onSubmit()" #transactionForm="ngForm">
   <!-- Select between showing all transactions or filtering by alias -->
-  <div class="shiftLeft">
-    <label>
-      <input type="radio" name="searchType" value="all" [(ngModel)]="searchType" (change)="onSearchTypeChange()"> Show
-      All Transactions
-    </label>
-
-    <label>
-      <input type="radio" name="searchType" value="alias" [(ngModel)]="searchType" (change)="onSearchTypeChange()"> Show
-      Transactions By Alias
-    </label>
+  <div >
+    <mat-radio-group [(ngModel)]="searchType" (change)="onSearchTypeChange()" name="searchType">
+      <mat-radio-button value="all">Show All Transactions</mat-radio-button>
+      <mat-radio-button class = "option" value="alias">Show Transactions By Alias</mat-radio-button>
+    </mat-radio-group>
   </div>
+
   <!-- If filtering by alias is selected, show further options -->
-  <div class="shiftLeft" *ngIf="searchType === 'alias'">
-    <label>
-      <input type="radio" name="aliasSearchType" value="all" [(ngModel)]="aliasSearchType"> Show All Transactions for an
-      Alias
-    </label>
-
-    <label>
-      <input type="radio" name="aliasSearchType" value="incoming" [(ngModel)]="aliasSearchType"> Show Incoming
-      Transactions for an Alias
-    </label>
-
-    <label>
-      <input type="radio" name="aliasSearchType" value="outgoing" [(ngModel)]="aliasSearchType"> Show Outgoing
-      Transactions for an Alias
-    </label>
+  <div  *ngIf="searchType === 'alias'">
+    <mat-radio-group [(ngModel)]="aliasSearchType" name="aliasSearchType">
+      <mat-radio-button value="all">Show All Transactions for an Alias</mat-radio-button>
+      <mat-radio-button class = "option" value="incoming">Show Incoming Transactions for an Alias</mat-radio-button>
+      <mat-radio-button class = "option" value="outgoing">Show Outgoing Transactions for an Alias</mat-radio-button>
+    </mat-radio-group>
 
     <!-- Alias Type Dropdown -->
+    <div class="horizontal-form-group">
     <div class="aliasType">
-      <label for="aliasType">Alias Type:</label>
-      <select id="aliasType" name="aliasType" [(ngModel)]="aliasType" required>
-        <option value="IBAN">IBAN</option>
-        <option value="ALPHANUMERIC">Alphanumeric</option>
-        <option value="PHONE">Phone Number</option>
-      </select>
+      <mat-form-field appearance="fill">
+        <mat-label>Alias Type</mat-label>
+        <mat-select [(ngModel)]="aliasType" name="aliasType" required>
+          <mat-option value="ALPHANUMERIC">Alphanumeric</mat-option>
+          <mat-option value="IBAN">IBAN</mat-option>
+          <mat-option value="PHONE">Phone Number</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
 
     <!-- Alias Value Input -->
     <div>
-      <label for="aliasValue">Alias Value:</label>
-      <input type="text" id="aliasValue" name="aliasValue" [(ngModel)]="aliasValue" required>
+      <mat-form-field appearance="fill">
+        <mat-label>Alias Value</mat-label>
+        <input matInput type="text" id="aliasValue" name="aliasValue" [(ngModel)]="aliasValue" required>
+      </mat-form-field>
     </div>
   </div>
-
-  <div class="shiftLeft">
-    <button type="submit" class="selectButton" [disabled]="!transactionForm.valid">Search</button>
+  </div>
+  <div >
+    <button mat-raised-button color="primary" type="submit" class="selectButton" [disabled]="!transactionForm.valid">Search</button>
   </div>
 </form>
 
-<!-- Display the transactions if available -->
-<div *ngIf="transactions.length > 0">
-  <h3>Fetched Transactions</h3>
-  <table>
-    <thead>
-    <tr>
-      <th>Amount</th>
-      <th>Currency</th>
-      <th>Purpose</th>
-      <th>Timestamp</th>
-      <th>Debtor</th>
-      <th>Creditor</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let transaction of transactions">
-      <td>{{ transaction.amount }}</td>
-      <td>{{ transaction.currency }}</td>
-      <td>{{ transaction.purpose }}</td>
-      <td>{{ transaction.timestamp }}</td>
-      <td>{{ transaction.debtor.value }}  (Alias Type: {{ transaction.debtor.type }})</td>
-      <td>{{ transaction.creditor.value }} (Alias Type: {{ transaction.creditor.type }})</td>
-    </tr>
-    </tbody>
-  </table>
+<!-- Display the transactions using ag-Grid -->
+<div *ngIf="transactions.length > 0" class="ag-theme-quartz" style="height: 500px; width: 100%;">
+  <ag-grid-angular
+    [rowData]="rowData"
+    [columnDefs]="colDefs"
+    [class]="themeClass"
+    class="ag-theme-quartz"
+    style="height: 500px; width: 100%;">
+  </ag-grid-angular>
 </div>
-
 
 <div *ngIf="searchAttempted && transactions.length == 0">
   <h3>No Transactions Found</h3>

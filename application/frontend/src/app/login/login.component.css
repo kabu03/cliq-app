@@ -1,0 +1,36 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loginHeading{
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.login-card {
+  width: 500px;
+  height: 400px;
+}
+
+.login-error {
+  color: red;
+  margin-top: 10px;
+}
+
+mat-form-field{
+  width: 100%;
+}
+
+.loginButton{
+  background-color: #4CAF50;
+  color: white;
+  padding: 30px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}

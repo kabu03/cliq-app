@@ -1,10 +1,35 @@
-<h1>Cliq Transactions App</h1>
-<nav>
-  <ul>
-    <li><a routerLink="/">Home</a></li>
-    <li><a routerLink="/transactions">Transactions</a></li>
-    <li><a routerLink="/add-transaction">Add Transaction</a></li>
-    <li><a routerLink="/remove-transaction">Remove Transaction</a></li>
-  </ul>
-</nav>
-<router-outlet></router-outlet>
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Cliq Transactions App</span>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" opened class = "sidenav">
+    <mat-nav-list>
+      <div class="navItems">
+        <mat-list-item>
+          <a matLine routerLink="/" class = "itemText">Home</a>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <a matLine routerLink="/transactions" class = "itemText">Transactions</a>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <a matLine routerLink="/add-transaction" class = "itemText">Add Transaction</a>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <a matLine routerLink="/remove-transaction" class = "itemText">Remove Transaction</a>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </div>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

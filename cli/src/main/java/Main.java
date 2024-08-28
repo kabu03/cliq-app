@@ -1,5 +1,7 @@
 
 import models.TransactionRepository;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import repositories.DatabaseConnection;
 import repositories.HibernateTransactionRepository;
 import repositories.JdbcTransactionRepository;
@@ -17,17 +19,14 @@ import java.util.Scanner;
 
 class Main {
     static boolean exitMainMenu = false;
-
+static PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
     public static void main(String[] args) {
-
 
         Scanner sc = new Scanner(System.in);
         TransactionRepository repository = startMenu();
         while (!exitMainMenu) {
             mainMenu(sc, repository);
         }
-
-        // ------------------- Refactor in progress -------------------
 
     }
 
@@ -83,7 +82,8 @@ class Main {
             case 3:
                 System.out.println("You have chosen to perform all operations on a database using Hibernate ORM.");
                 try {
-                    return new HibernateTransactionRepository();
+//                    return new HibernateTransactionRepository();
+                    System.out.println("Under maintenance...");
                 } catch (Exception e) {
                     System.out.println("Error connecting to database");
                 }

@@ -16,7 +16,6 @@ import java.util.Objects;
 public class Transaction {
     @Column(name = "amount")
     private final double amount;
-    @Enumerated(EnumType.STRING)
     @Column(name = "currency")
     private final String currency;
     @Column(name = "purpose")

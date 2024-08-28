@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import repositories.HibernateTransactionRepository;
 import requests.AliasRequest;
 import requests.TransactionIdRequest;
 import requests.TransactionRequest;
@@ -18,28 +19,28 @@ import validators.TransactionValidator;
 
 @RestController
 @RequestMapping("/transactions")
-
+// This class handles REST API endpoints, such as GET, POST, and DELETE requests.
 public class TransactionController {
 
-    private final TransactionRepository transactionRepository;
+    private final HibernateTransactionRepository hibernateTransactionRepository;
     private final TransactionValidator transactionValidator;
     private final AliasValidator aliasValidator;
     private final CurrencyValidator currencyValidator;
 
     @Autowired
-    public TransactionController(@Qualifier("memoryTransactionRepository") TransactionRepository transactionRepository,
+    public TransactionController(HibernateTransactionRepository hibernateTransactionRepository,
                                  TransactionValidator transactionValidator, AliasValidator aliasValidator, CurrencyValidator currencyValidator) {
-        this.transactionRepository = transactionRepository;
+        this.hibernateTransactionRepository = hibernateTransactionRepository;
         this.transactionValidator = transactionValidator;
         this.aliasValidator = aliasValidator;
         this.currencyValidator = currencyValidator;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<Response> getAllTransactions() {
         GetAllTransactionsService getAllTransactionsService =
                 new GetAllTransactionsService(new GetAllTransactionsUseCase
-                        (transactionRepository, transactionValidator, aliasValidator), null);
+                        (hibernateTransactionRepository, transactionValidator, aliasValidator), null);
 
         Response response = getAllTransactionsService.processRequest();
         return ResponseEntity.ok(response);
@@ -49,7 +50,7 @@ public class TransactionController {
     public ResponseEntity<Response> getTransactionById(@PathVariable int id) {
         GetTransactionByIdService getTransactionByIdService =
                 new GetTransactionByIdService(
-                        new GetTransactionByIdUseCase(transactionRepository),
+                        new GetTransactionByIdUseCase(hibernateTransactionRepository),
                         new TransactionIdRequest(id, null));
         Response response = getTransactionByIdService.processRequest();
 
@@ -60,10 +61,10 @@ public class TransactionController {
         }
     }
 
-    @PostMapping("/add")
+    @PostMapping("/add-transaction")
     public ResponseEntity<Response> addTransaction(@RequestBody TransactionRequest request) {
         AddTransactionService addTransactionService = new AddTransactionService(
-                new AddTransactionUseCase(transactionRepository, transactionValidator, aliasValidator, currencyValidator),
+                new AddTransactionUseCase(hibernateTransactionRepository, transactionValidator, aliasValidator, currencyValidator),
                 request
         );
         Response response = addTransactionService.processRequest();
@@ -73,7 +74,7 @@ public class TransactionController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Response> removeTransactionById(@PathVariable int id) {
         RemoveTransactionService removeTransactionService = new RemoveTransactionService(
-                new RemoveTransactionUseCase(transactionRepository, transactionValidator, aliasValidator),
+                new RemoveTransactionUseCase(hibernateTransactionRepository, transactionValidator, aliasValidator),
                 new TransactionIdRequest(id, null)
         );
         Response response = removeTransactionService.processRequest();
@@ -86,7 +87,7 @@ public class TransactionController {
             GetInwardTransactionsService inwardTransactionsService =
                     new GetInwardTransactionsService(
                             new GetInwardTransactionsUseCase(
-                                    transactionRepository, aliasValidator),
+                                    hibernateTransactionRepository, aliasValidator),
                             new AliasRequest(aliasType.toUpperCase(), aliasValue, null));
             Response response = inwardTransactionsService.processRequest();
             return ResponseEntity.ok(response);
@@ -102,7 +103,7 @@ public class TransactionController {
             GetOutwardTransactionsService outwardTransactionsService =
                     new GetOutwardTransactionsService(
                             new GetOutwardTransactionsUseCase(
-                                    transactionRepository, aliasValidator),
+                                    hibernateTransactionRepository, aliasValidator),
                             new AliasRequest(aliasType.toUpperCase(), aliasValue, null));
             Response response = outwardTransactionsService.processRequest();
             return ResponseEntity.ok(response);
@@ -112,13 +113,13 @@ public class TransactionController {
         }
     }
 
-    @GetMapping("/alias/{aliasType}/{aliasValue}")
+    @GetMapping("/all/{aliasType}/{aliasValue}")
     public ResponseEntity<Response> getTransactionsByAlias(@PathVariable String aliasType, @PathVariable String aliasValue) {
         try {
             GetTransactionsByAliasService transactionsByAliasService =
                     new GetTransactionsByAliasService(
                             new GetTransactionsByAliasUseCase(
-                                    transactionRepository, aliasValidator),
+                                    hibernateTransactionRepository, aliasValidator),
                             new AliasRequest(aliasType.toUpperCase(), aliasValue, null));
             Response response = transactionsByAliasService.processRequest();
             return ResponseEntity.ok(response);

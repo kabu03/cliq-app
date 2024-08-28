@@ -1,36 +1,53 @@
-/* Navigation Bar Styles */
-nav ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  /*background-color: #4a148c;*/
-  background-color: DarkSlateGray;
-  margin: 0 0 50px;
+.sidenav-container {
+  height: 100%;
 }
 
-nav ul li {
-  margin: 0 15px;
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
 }
 
-nav ul li a {
+.sidenav{
+  background-image: url('../cash.png');
+  background-size: 380%;
+  background-repeat: repeat;
+}
+
+mat-sidenav {
+  width: 250px;
+  background-color: darkslategrey;
+  color: darkslategrey;
+}
+
+mat-sidenav-content {
+  padding: 40px 20px; /* Adjust for toolbar height */
+  background: #f4f4f9;
+  min-height: 100vh;
+}
+
+mat-nav-list mat-list-item {
+  padding: 50px 20px;
+}
+
+.navItems{
+  margin-top: 45px;
+
+}
+
+.itemText{
+  font-size: 20px;
+  /*font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;*/
+}
+
+mat-nav-list mat-list-item a {
   color: white;
-  font-weight: bold;
-  padding: 10px 15px;
-  border-radius: 5px;
 }
 
-nav ul li a:hover {
-  /*background-color: #6200ea;*/
-  background-color: seagreen;
-}
-
-.container {
-  width: 80%;
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
-  background: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+mat-nav-list mat-list-item a:hover {
+  background-color: #74777f;
+  border-radius: 3px;
+  color: white;
 }

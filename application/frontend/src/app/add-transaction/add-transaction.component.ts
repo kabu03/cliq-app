@@ -1,16 +1,22 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {environment} from "../../environments/environment";
+import {MatFormField, MatLabel} from "@angular/material/form-field";
+import {MatOption, MatSelect} from "@angular/material/select";
+import {MatButton} from "@angular/material/button";
+import {MatInput} from "@angular/material/input";
+import {HttpClientModule} from "@angular/common/http";
 
 @Component({
   standalone: true,
   selector: 'app-add-transaction',
   templateUrl: './add-transaction.component.html',
-  imports: [ReactiveFormsModule, HttpClientModule], // Add HttpClientModule here
+  styleUrl: './add-transaction.component.scss',
+  imports: [ReactiveFormsModule, MatFormField, MatLabel, MatSelect, MatOption, MatButton, MatInput, HttpClientModule]
 })
 export class AddTransactionComponent {
   transactionForm: FormGroup;

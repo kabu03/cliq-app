@@ -1,9 +1,11 @@
 <h2>Remove Transaction</h2>
 
 <form (ngSubmit)="onRemove()" #removeTransactionForm="ngForm">
-  <label for="transactionId">Transaction ID:</label>
+  <label class = "transactionID" for="transactionId">Transaction ID:</label>
   <input type="number" id="transactionId" name="transactionId" [(ngModel)]="transactionId" required>
 
+  <div class = "removeButton">
   <button type="submit" class="removeButton" [disabled]="!removeTransactionForm.valid">Remove</button>
+  </div>
 </form>
 

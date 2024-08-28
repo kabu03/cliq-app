@@ -7,20 +7,30 @@ import models.TransactionRepository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Getter
+@Repository
 public class HibernateTransactionRepository implements TransactionRepository {
 
+    @Autowired
     private final SessionFactory sessionFactory;
 //    private static int idCounter = 1; // Static counter to generate unique IDs
 
+    @Autowired
+    public HibernateTransactionRepository(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
+
+    // Parameterless constructor for other uses
     public HibernateTransactionRepository() {
-        // Configure Hibernate and build the session factory
         Configuration configuration = new Configuration();
         configuration.addAnnotatedClass(Transaction.class);
-        sessionFactory = configuration.buildSessionFactory();
+        this.sessionFactory = configuration.buildSessionFactory();
     }
 
     @Override

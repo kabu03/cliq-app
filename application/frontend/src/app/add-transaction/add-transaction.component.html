@@ -1,64 +1,84 @@
 <h2>Add Transaction</h2>
 <form [formGroup]="transactionForm" (ngSubmit)="onSubmit()">
   <div class="form-row">
-    <div class="form-group half-width">
-      <label for="debtorAliasType">Debtor Alias Type</label>
-      <select id="debtorAliasType" formControlName="debtorAliasType">
-        <option value="IBAN">IBAN</option>
-        <option value="ALPHANUMERIC">ALPHANUMERIC</option>
-        <option value="PHONE_NUMBER">PHONE NUMBER</option>
-      </select>
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Debtor Alias Type</mat-label>
+        <mat-select formControlName="debtorAliasType">
+          <mat-option value="IBAN">IBAN</mat-option>
+          <mat-option value="ALPHANUMERIC">ALPHANUMERIC</mat-option>
+          <mat-option value="PHONE_NUMBER">PHONE NUMBER</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
 
-    <div class="form-group half-width">
-      <label for="debtorAliasValue">Debtor Alias Value</label>
-      <input id="debtorAliasValue" type="text" formControlName="debtorAliasValue" />
-    </div>
-  </div>
-
-  <div class="form-row">
-    <div class="form-group half-width">
-      <label for="creditorAliasType">Creditor Alias Type</label>
-      <select id="creditorAliasType" formControlName="creditorAliasType">
-        <option value="IBAN">IBAN</option>
-        <option value="ALPHANUMERIC">ALPHANUMERIC</option>
-        <option value="PHONE_NUMBER">PHONE NUMBER</option>
-      </select>
-    </div>
-
-    <div class="form-group half-width">
-      <label for="creditorAliasValue">Creditor Alias Value</label>
-      <input id="creditorAliasValue" type="text" formControlName="creditorAliasValue" />
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Debtor Alias Value</mat-label>
+        <input matInput id="debtorAliasValue" type="text" formControlName="debtorAliasValue" />
+      </mat-form-field>
     </div>
   </div>
 
   <div class="form-row">
-    <div class="form-group half-width">
-      <label for="amount">Amount</label>
-      <input id="amount" type="number" formControlName="amount" />
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Creditor Alias Type</mat-label>
+        <mat-select formControlName="creditorAliasType">
+          <mat-option value="IBAN">IBAN</mat-option>
+          <mat-option value="ALPHANUMERIC">ALPHANUMERIC</mat-option>
+          <mat-option value="PHONE_NUMBER">PHONE NUMBER</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
 
-    <div class="form-group half-width">
-      <label for="currency">Currency</label>
-      <select id="currency" formControlName="currency">
-        <option value="JOD">JOD</option>
-        <option value="USD">USD</option>
-        <option value="EUR">EUR</option>
-        <option value="GBP">GBP</option>
-        <option value="HUF">HUF</option>
-      </select>
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Creditor Alias Value</mat-label>
+        <input matInput id="creditorAliasValue" type="text" formControlName="creditorAliasValue" />
+      </mat-form-field>
     </div>
   </div>
 
-  <div class="form-group">
-    <label for="purpose">Purpose</label>
-    <textarea id="purpose" formControlName="purpose"></textarea>
+  <div class="form-row">
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Amount</mat-label>
+        <input matInput id="amount" type="number" formControlName="amount" />
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field appearance="fill">
+        <mat-label>Currency</mat-label>
+        <mat-select id="currency" formControlName="currency">
+          <mat-option value="JOD">JOD</mat-option>
+          <mat-option value="USD">USD</mat-option>
+          <mat-option value="EUR">EUR</mat-option>
+          <mat-option value="GBP">GBP</mat-option>
+          <mat-option value="HUF">HUF</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
   </div>
 
-  <div class="form-group">
-    <label for="comments">Comments</label>
-    <textarea id="comments" formControlName="comments"></textarea>
+  <div class="form-row">
+    <div class="form-group full-width">
+      <mat-form-field appearance="fill">
+        <mat-label>Purpose</mat-label>
+        <textarea matInput id="purpose" formControlName="purpose"></textarea>
+      </mat-form-field>
+    </div>
   </div>
 
-  <button type="submit" [disabled]="transactionForm.invalid">Submit</button>
+  <div class="form-row">
+    <div class="form-group full-width">
+      <mat-form-field appearance="fill">
+        <mat-label>Comments</mat-label>
+        <textarea matInput id="comments" formControlName="comments"></textarea>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="transactionForm.invalid">Submit</button>
 </form>

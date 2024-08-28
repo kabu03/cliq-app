@@ -1,0 +1,121 @@
+@use '../node_modules/@angular/material' as mat;
+@import 'ag-grid-community/styles/ag-grid.css';
+@import 'ag-grid-community/styles/ag-theme-quartz.css';
+@include mat.core();
+
+$theme: mat.define-theme((
+  color: (
+    //theme-type: dark,
+    primary: mat.$cyan-palette,
+  ),
+  typography: (
+    brand-family: 'Comic Sans',
+    bold-weight: 900
+  ),
+  density: (
+    scale: -1
+  )
+));
+
+// Include the theme styles globally
+:root {
+  @include mat.all-component-themes($theme);
+}
+
+/* Global Styles */
+* {
+  font-family: 'Roboto', Arial, sans-serif;
+  /*text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); !* Add this line for the text shadow *!*/
+}
+
+body {
+  font-weight: bolder;
+  color: #333;
+  line-height: 1.6;
+  //padding: 20px;
+  /*background-color: #f4f4f9;*/
+  /*background-image: url('./cash.png');*/
+  /*background-size: 125%; !* Scales the background image to cover the entire page *!*/
+  /*background-repeat: repeat; !* Prevents the background image from repeating *!*/
+  /*background-attachment: fixed; !* Keeps the background image fixed when scrolling *!*/
+  /*text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); !* Add this line for the text shadow *!*/
+  /*background-image:  radial-gradient(#444cf7 1.05px, transparent 1.05px), radial-gradient(#444cf7 1.05px, #e5e5f7 1.05px);*/
+  /*background-size: 42px 42px;*/
+  /*background-position: 0 0,21px 21px;*/
+}
+
+p{
+  font-size: 1.2rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: DarkSlateGray;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  /*text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); !* Add a slightly stronger shadow for headings *!*/
+}
+
+a {
+  color: DarkSlateGray;
+  text-decoration: none;
+  /*text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); !* Add shadow to links as well *!*/
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  background-color: DarkSlateGray;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: Gray;
+}
+
+input, select, textarea {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+input[type="submit"] {
+  background-color: DarkSlateGray;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+input[type="submit"]:hover {
+  background-color: Gray;
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+html, body {
+  height: 100%;
+}

@@ -1,9 +1,7 @@
 package validators;
 
 import models.Alias;
-import org.springframework.stereotype.Component;
 
-@Component
 public class AliasValidator implements Validator<Alias> {
 
     public void validate(Alias alias) {

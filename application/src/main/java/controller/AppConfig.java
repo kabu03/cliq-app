@@ -3,10 +3,11 @@ package controller;
 import models.TransactionRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import repositories.DatabaseConnection;
-import repositories.HibernateTransactionRepository;
-import repositories.JdbcTransactionRepository;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import repositories.MemoryTransactionRepository;
+import validators.AliasValidator;
+import validators.CurrencyValidator;
+import validators.TransactionValidator;
 
 @Configuration
 public class AppConfig {
@@ -16,13 +17,20 @@ public class AppConfig {
         return new MemoryTransactionRepository();
     }
 
-//    @Bean
-//    public TransactionRepository jdbcTransactionRepository() {
-//        return new JdbcTransactionRepository("transactions", new DatabaseConnection());
-//    }
-//
-//    @Bean
-//    public TransactionRepository hibernateTransactionRepository() {
-//        return new HibernateTransactionRepository();
-//    }
+
+    @Bean
+    public TransactionValidator transactionValidator() {
+        return new TransactionValidator();
+    }
+
+    @Bean
+    public AliasValidator aliasValidator() {
+        return new AliasValidator();
+    }
+
+    @Bean
+    public CurrencyValidator currencyValidator() {
+        return new CurrencyValidator();
+    }
+
 }
