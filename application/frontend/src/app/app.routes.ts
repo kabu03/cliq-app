@@ -1,6 +1,5 @@
 import {Routes} from '@angular/router';
 import {HomeComponent} from './home/home.component';
-import {TransactionsComponent} from './transactions/transactions.component';
 import {AddTransactionComponent} from './add-transaction/add-transaction.component';
 import {ErrorPageComponent} from './error-page/error-page.component';
 import {RemoveTransactionComponent} from './remove-transaction/remove-transaction.component';
