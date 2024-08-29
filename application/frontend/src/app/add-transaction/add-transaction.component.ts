@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, provideHttpClient} from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -9,22 +9,27 @@ import {MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatOption, MatSelect} from "@angular/material/select";
 import {MatButton} from "@angular/material/button";
 import {MatInput} from "@angular/material/input";
-import {HttpClientModule} from "@angular/common/http";
+import {AuthService} from "../auth/auth.service";
 
 @Component({
   standalone: true,
   selector: 'app-add-transaction',
   templateUrl: './add-transaction.component.html',
   styleUrl: './add-transaction.component.scss',
-  imports: [ReactiveFormsModule, MatFormField, MatLabel, MatSelect, MatOption, MatButton, MatInput, HttpClientModule]
+  imports: [ReactiveFormsModule, MatFormField, MatLabel, MatSelect, MatOption, MatButton, MatInput]
 })
-export class AddTransactionComponent {
+export class AddTransactionComponent implements OnInit {
   transactionForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private snackBar: MatSnackBar) {
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private snackBar: MatSnackBar,
+    private authService: AuthService // Inject AuthService to get logged-in user info
+  ) {
     this.transactionForm = this.fb.group({
-      debtorAliasType: ['', Validators.required],
-      debtorAliasValue: ['', Validators.required],
+      debtorAliasType: ['', Validators.required],  // We will set this programmatically
+      debtorAliasValue: ['', Validators.required], // We will set this programmatically
       creditorAliasType: ['', Validators.required],
       creditorAliasValue: ['', Validators.required],
       amount: ['', [Validators.required, Validators.min(0.01)]],
@@ -34,10 +39,18 @@ export class AddTransactionComponent {
     });
   }
 
+  ngOnInit() {
+    // Automatically set the debtor's alias type and value based on the logged-in user
+    this.transactionForm.patchValue({
+      debtorAliasType: this.authService.getAliasType(),
+      debtorAliasValue: this.authService.getAliasValue()
+    });
+  }
+
   onSubmit() {
     if (this.transactionForm.valid) {
-      let url:string = `${environment.apiUrl}`;
-      this.http.post<Response>(url + '/transactions/add-transaction', this.transactionForm.value)
+      const url = `${environment.apiUrl}/transactions/add-transaction`;
+      this.http.post<Response>(url, this.transactionForm.value)
         .pipe(
           catchError(error => {
             console.error('Error occurred:', error);
@@ -45,7 +58,7 @@ export class AddTransactionComponent {
             return of(null);
           })
         )
-        .subscribe((response:any) => {
+        .subscribe((response: any) => {
           if (response) {
             this.snackBar.open('Transaction added successfully with ID ' + response.transactionId + ". Don't forget the ID!", 'Close', { duration: 5000 });
           } else {

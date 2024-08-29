@@ -24,17 +24,30 @@ public class AuthController {
     @Autowired
     private UserDetailsService userDetailsService;
 
+    @Autowired
+    private AliasService aliasService;  // Inject the AliasService
+
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthRequest authRequest) throws AuthenticationException {
+        // Authenticate the user
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword())
         );
 
+        // Load the user details
         UserDetails userDetails = userDetailsService.loadUserByUsername(authRequest.getUsername());
+
+        // Generate JWT token
         String jwt = jwtUtil.generateToken(userDetails.getUsername());
 
-        return ResponseEntity.ok(new AuthResponse(jwt));
+        // Fetch aliasType and aliasValue for the user
+        String aliasType = aliasService.getAliasType(authRequest.getUsername());
+        String aliasValue = aliasService.getAliasValue(authRequest.getUsername());
+
+        // Return the response with JWT, aliasType, and aliasValue
+        return ResponseEntity.ok(new AuthResponse(jwt, aliasType, aliasValue));
     }
+
     @Getter
     public static class AuthRequest {
         private String username;
@@ -44,10 +57,13 @@ public class AuthController {
     @Getter
     public static class AuthResponse {
         private String jwt;
+        private String aliasType;
+        private String aliasValue;
 
-        public AuthResponse(String jwt) {
+        public AuthResponse(String jwt, String aliasType, String aliasValue) {
             this.jwt = jwt;
+            this.aliasType = aliasType;
+            this.aliasValue = aliasValue;
         }
     }
 }
-

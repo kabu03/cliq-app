@@ -5,106 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="88514ce0-4653-406d-817c-f73411807513" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/application/frontend/src/app/add-transaction/add-transaction.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/frontend/src/app/auth.guard.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/frontend/src/app/auth.guard.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/frontend/src/app/auth/auth-interceptor.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/frontend/src/app/auth/auth-interceptor.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/frontend/src/app/auth/auth.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/frontend/src/app/auth/auth.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/frontend/src/app/login/login.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/frontend/src/app/login/login.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/frontend/src/app/login/login.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/frontend/src/app/login/login.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/frontend/src/assets/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/controller/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/controller/JwtRequestFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/controller/JwtUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/src/main/java/controller/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/frontend/src/app/incoming-transactions/incoming-transactions.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/frontend/src/app/incoming-transactions/incoming-transactions.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/frontend/src/app/incoming-transactions/incoming-transactions.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/frontend/src/app/incoming-transactions/incoming-transactions.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/frontend/src/app/outgoing-transactions/outgoing-transactions.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/frontend/src/app/outgoing-transactions/outgoing-transactions.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/frontend/src/app/outgoing-transactions/outgoing-transactions.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/frontend/src/app/outgoing-transactions/outgoing-transactions.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/src/main/java/controller/AliasService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/frontend/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/frontend/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/frontend/src/app/add-transaction/add-transaction.component.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/application/frontend/src/app/add-transaction/add-transaction.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/src/app/add-transaction/add-transaction.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/frontend/src/app/add-transaction/add-transaction.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/src/app/add-transaction/add-transaction.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/frontend/src/app/app.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/src/app/app.component.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/frontend/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/frontend/src/app/app.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/src/app/app.component.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/frontend/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/frontend/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/src/app/app.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/frontend/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/frontend/src/app/error-page/error-page.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/src/app/error-page/error-page.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/frontend/src/app/home/home.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/src/app/home/home.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/frontend/src/app/remove-transaction/remove-transaction.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/src/app/remove-transaction/remove-transaction.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/frontend/src/app/remove-transaction/remove-transaction.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/src/app/remove-transaction/remove-transaction.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/frontend/src/app/auth/auth-interceptor.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/src/app/auth/auth-interceptor.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/frontend/src/app/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/src/app/auth/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/frontend/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/src/app/login/login.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/frontend/src/app/remove-transaction/remove-transaction.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/src/app/remove-transaction/remove-transaction.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/frontend/src/app/transaction-search/transaction-search.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/src/app/transaction-search/transaction-search.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/frontend/src/app/transaction-search/transaction-search.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/src/app/transaction-search/transaction-search.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/frontend/src/app/transaction-search/transaction-search.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/src/app/transaction-search/transaction-search.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/frontend/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/frontend/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/frontend/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/application/frontend/src/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/controller/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/controller/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/controller/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/controller/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/controller/TransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/controller/TransactionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/controller/WebConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/repositories/HibernateTransactionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/repositories/HibernateTransactionRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/3rdpartylicenses.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/browser/add-transaction/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/browser/chunk-FM4T3UTQ.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/browser/chunk-ZHKLP3J3.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/browser/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/browser/index.csr.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/browser/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/browser/main-43B66N67.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/browser/main-4Z3S3SMB.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/browser/main-GPCGPY75.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/browser/main-QFQ4GFQZ.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/browser/polyfills-SCHOHYNV.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/browser/remove-transaction/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/browser/styles-3RLIFYT4.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/browser/styles-JAVVGWF6.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/browser/styles-ZUYMVH6A.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/browser/transactions/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/prerendered-routes.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/realistic-money-element_23-2150396392.avif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/server/chunk-5XUXGTUW.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/server/chunk-6433XWLB.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/server/chunk-7YC4RJ5P.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/server/chunk-FDGPOVZE.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/server/chunk-GJRPEATU.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/server/chunk-LGLIOG73.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/server/chunk-OXY2MV2X.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/server/chunk-XDMTH75X.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/server/index.server.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/server/main.server.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/server/polyfills.server.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/server/render-utils.server.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/resources/static/frontend/server/server.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/target/classes/controller/AppConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/application/target/classes/controller/AppConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/target/classes/controller/MainApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/application/target/classes/controller/MainApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/target/classes/controller/TransactionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/application/target/classes/controller/TransactionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/target/classes/repositories/HibernateTransactionRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/application/target/classes/repositories/HibernateTransactionRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/target/classes/repositories/MemoryTransactionRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/application/target/classes/repositories/MemoryTransactionRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/target/classes/responses/TransactionsResponse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/cli/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/cli/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cli/target/classes/hibernate.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/models/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/models/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/validators/AliasValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/validators/AliasValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/validators/CurrencyValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/validators/CurrencyValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/validators/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/src/main/java/validators/TransactionValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/src/main/java/validators/TransactionValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/classes/models/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/classes/models/Transaction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/classes/validators/AliasValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/classes/validators/AliasValidator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/classes/validators/CurrencyValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/classes/validators/CurrencyValidator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/target/classes/validators/TransactionValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/domain/target/classes/validators/TransactionValidator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/controller/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/controller/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/classes/controller/AuthController$AuthRequest.class" beforeDir="false" afterPath="$PROJECT_DIR$/application/target/classes/controller/AuthController$AuthRequest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/classes/controller/AuthController$AuthResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/application/target/classes/controller/AuthController$AuthResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/classes/controller/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/application/target/classes/controller/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/target/classes/controller/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/application/target/classes/controller/SecurityConfig.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +50,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -149,7 +76,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.MainApplication.executor": "Run",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "prototype",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/home/karamabujudom/IdeaProjects/CliqApp/application/frontend/src/assets",
     "node.js.detected.package.eslint": "true",

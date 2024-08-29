@@ -3,6 +3,12 @@
     <mat-icon>menu</mat-icon>
   </button>
   <span>Cliq Transactions App</span>
+
+  <!-- Spacer to push the greeting to the right -->
+  <span class="spacer"></span>
+
+  <!-- Display logged-in user's alias -->
+  <span>Hello, {{ loggedInUserAlias }}!</span>
 </mat-toolbar>
 
 <mat-sidenav-container class="sidenav-container">
@@ -14,7 +20,11 @@
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
-          <a matLine routerLink="/transactions" class = "itemText">Transactions</a>
+          <a matLine routerLink="/incoming-transactions" class="itemText">Incoming Transactions</a>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <a matLine routerLink="/outgoing-transactions" class="itemText">Outgoing Transactions</a>
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
@@ -23,6 +33,10 @@
         <mat-divider></mat-divider>
         <mat-list-item>
           <a matLine routerLink="/remove-transaction" class = "itemText">Remove Transaction</a>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item class="logout-item" (click)="logout()">
+          <span matLine class="itemText">Logout</span>
         </mat-list-item>
         <mat-divider></mat-divider>
       </div>

@@ -8,16 +8,27 @@ import { environment } from '../../environments/environment';
 
 interface AuthResponse {
   jwt: string;
-  // add other properties if needed
+  aliasType: string;   // Add these fields to the interface
+  aliasValue: string;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  private aliasType: string | null = null;
+  private aliasValue: string | null = null;
   private jwtHelper = new JwtHelperService();
 
   constructor(private http: HttpClient, private router: Router) {}
+
+  getAliasType(): string | null {
+    return localStorage.getItem('aliasType');
+  }
+
+  getAliasValue(): string | null {
+    return localStorage.getItem('aliasValue');
+  }
 
   login(username: string, password: string): Observable<any> {
     const body = { username, password };
@@ -27,6 +38,7 @@ export class AuthService {
       tap(response => {
         console.log('Response from backend:', response);
         this.setSession(response.jwt);
+        this.setAlias(response.aliasType, response.aliasValue);
       })
     );
   }
@@ -38,7 +50,14 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('authToken');
+    localStorage.removeItem('aliasType');
+    localStorage.removeItem('aliasValue');
     this.router.navigate(['/login']);
+  }
+
+  private setAlias(aliasType: string, aliasValue: string): void {
+    localStorage.setItem('aliasType', aliasType);
+    localStorage.setItem('aliasValue', aliasValue);
   }
 
   isLoggedIn(): boolean {
@@ -49,7 +68,6 @@ export class AuthService {
     }
     return false;
   }
-
 
   getToken(): string | null {
     return localStorage.getItem('authToken');

@@ -8,6 +8,7 @@ import {MatLine} from "@angular/material/core";
 import {MatIconButton} from "@angular/material/button";
 import {Title} from "@angular/platform-browser";
 import {filter, map, mergeMap} from "rxjs";
+import {AuthService} from "./auth/auth.service";
 
 
 @Component({
@@ -27,23 +28,35 @@ import {filter, map, mergeMap} from "rxjs";
   ],
 })
 export class AppComponent implements OnInit {
-  constructor(
-    private titleService: Title,
-    private router: Router,
-    private activatedRoute: ActivatedRoute
-  ) {}
+  loggedInUserAlias: string = '';
+
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
+    // Subscribe to router events
     this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd),
-      map(() => {
-        let route = this.activatedRoute;
-        while (route.firstChild) route = route.firstChild;
-        return route;
-      }),
-      mergeMap(route => route.data)
-    ).subscribe(data => {
-      this.titleService.setTitle(data['title'] || 'Default Title');
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      this.updateLoggedInUserAlias();
     });
+
+    // Initialize on first load
+    this.updateLoggedInUserAlias();
+  }
+
+  updateLoggedInUserAlias() {
+    const aliasType = this.authService.getAliasType();
+    const aliasValue = this.authService.getAliasValue();
+    if (aliasType && aliasValue) {
+      this.loggedInUserAlias = `${aliasValue}`;
+    } else {
+      this.loggedInUserAlias = 'Guest';
+    }
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/']);
+    this.updateLoggedInUserAlias(); // Update alias after logging out
   }
 }

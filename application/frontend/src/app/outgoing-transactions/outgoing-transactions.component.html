@@ -1,0 +1,15 @@
+<h3>Outgoing Transactions</h3>
+
+<!-- Display the transactions using ag-Grid -->
+<div *ngIf="transactions.length > 0" class="ag-theme-quartz" style="height: 500px; width: 100%;">
+  <ag-grid-angular
+    [rowData]="rowData"
+    [columnDefs]="colDefs"
+    [class]="themeClass"
+    style="height: 500px; width: 100%;">
+  </ag-grid-angular>
+</div>
+
+<div *ngIf="searchAttempted && transactions.length == 0">
+  <h3>No Transactions Found</h3>
+</div>

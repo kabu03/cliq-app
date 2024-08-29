@@ -10,14 +10,18 @@ mat-toolbar {
   z-index: 2;
 }
 
-.sidenav{
-  background-image: url('../cash.png');
-  background-size: 380%;
-  background-repeat: repeat;
+/*.sidenav{*/
+/*  background-image: url('../cash.png');*/
+/*  background-size: 380%;*/
+/*  background-repeat: repeat;*/
+/*}*/
+
+.spacer {
+  flex: 1 1 auto;
 }
 
 mat-sidenav {
-  width: 250px;
+  width: 300px;
   background-color: darkslategrey;
   color: darkslategrey;
 }
@@ -50,4 +54,11 @@ mat-nav-list mat-list-item a:hover {
   background-color: #74777f;
   border-radius: 3px;
   color: white;
+}
+
+.logout-item .itemText {
+  text-align: center;
+  font-weight: bolder;
+  color: red;
+  text-shadow: 2px 2px 2px black;
 }

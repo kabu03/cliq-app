@@ -32,7 +32,7 @@ import {AuthService} from '../auth/auth.service';
 export class LoginComponent {
   loginForm: FormGroup;
   loginFailed = false;
-  loginErrorMessage = 'Login failed. You have 2 attempts left until a virus bomb is downloaded to your device.';
+  loginErrorMessage = 'Login failed. Please check your username and password.';
 
   constructor(
     private fb: FormBuilder,

@@ -3,14 +3,12 @@ import {FormsModule} from "@angular/forms";
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import {HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'app-remove-transaction',
   standalone: true,
   imports: [
     FormsModule,
-    HttpClientModule
   ],
   templateUrl: './remove-transaction.component.html',
   styleUrl: './remove-transaction.component.css'
