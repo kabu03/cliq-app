@@ -1,93 +1,131 @@
-# CliqApp
+# Cliq Transactions App
 
+A full-stack web application to simulate payment transactions, built with Angular, Spring Boot, and PostgreSQL. This app allows users to log in, view their incoming and outgoing transactions, and add new transactions. Authentication and authorization are implemented using JWT (JSON Web Tokens), and only logged-in users can access or manipulate transaction data.
 
+## Table of Contents
 
-## Getting started
+- [Features](#features)
+- [Architecture](#architecture)
+- [Technologies](#technologies)
+- [Setup and Installation](#setup-and-installation)
+- [Usage](#usage)
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+---
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## Features
 
-## Add your files
+- **User Authentication**: Login required to access transaction data. JWT is used to authorize requests.
+- **Incoming and Outgoing Transactions**: View transactions where the user is either the creditor or the debtor.
+- **Add Transactions**: Form to create new transactions, specifying details like amount, currency, debtor, and creditor.
+- **Responsive UI**: Built with Angular for a smooth user experience.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+## Architecture
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/ps.karam.abujudom/cliqapp.git
-git branch -M main
-git push -uf origin main
-```
+The app follows the **Onion Architecture**, ensuring a clean separation of concerns:
+- **Controllers** handle the HTTP requests.
+- **Services** implement business logic.
+- **Repositories** interact with the database.
+- **Entities** represent database models.
 
-## Integrate with your tools
+---
 
-- [ ] [Set up project integrations](https://gitlab.com/ps.karam.abujudom/cliqapp/-/settings/integrations)
+## Technologies
 
-## Collaborate with your team
+### Frontend
+- Angular
+- TypeScript
+- HTML/CSS
+- SCSS
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+### Backend
+- Java
+- Spring Boot
+- Kotlin (some modules)
+- JWT for authentication
 
-## Test and Deploy
+### Database
+- PostgreSQL
+- Hibernate
+- JDBC
 
-Use the built-in continuous integration in GitLab.
+---
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+## Setup and Installation
 
-***
+### Prerequisites
 
-# Editing this README
+- **Java 17** or higher
+- **Node.js** and **npm** (for Angular)
+- **PostgreSQL** installed and running
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+### Backend Setup
 
-## Suggestions for a good README
+1. **Clone the Repository**
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+   ```bash
+   git clone https://github.com/kabu03/cliq-app.git
+   cd cliq-app
+   ```
 
-## Name
-Choose a self-explaining name for your project.
+2. **Set Up PostgreSQL Database**
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+   - Create a PostgreSQL database (e.g., `cliq_app_db`).
+   - Note down the database URL, username, and password.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+3. **Configure Database Connection**
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+   Open `application.properties` (or `application.yml`) in `src/main/resources/` and set your PostgreSQL connection details:
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+   ```properties
+   spring.datasource.url=jdbc:postgresql://localhost:5432/cliq_app_db
+   spring.datasource.username=your_db_username
+   spring.datasource.password=your_db_password
+   spring.jpa.hibernate.ddl-auto=update
+   spring.jpa.show-sql=true```
+   
+4. **Run the Backend**
+
+   Navigate to the backend directory and run the Spring Boot application:
+
+   ```bash
+   ./mvnw spring-boot:run
+   ```
+
+The backend server should start on http://localhost:8080.
+
+### Frontend Setup
+
+  1. **Navigate to the Frontend Directory**
+     ```bash
+     cd application/frontend
+     ```
+  3. **Install Dependencies**
+     ```bash
+     npm install
+     ```
+  4. **Run the Frontend**
+     Start the Angular development server:
+     ```bash
+     ng serve
+     ```
+     The frontend will be available at http://localhost:4200.
 
 ## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+1. Access the Application
+- Open your browser and go to http://localhost:4200.
+2. Log In
+- Use the login page to authenticate.
+- You’ll need to have user records in the PostgreSQL database. You can create dummy users by inserting them directly into the database if needed.
+3. View Transactions
+- Once logged in, navigate to Incoming Transactions to view transactions where you are the creditor.
+- Go to Outgoing Transactions to view transactions where you are the debtor.
+4. Add New Transaction
+- Go to Add Transaction to create a new transaction.
+- Fill in details such as amount, currency, debtor, and creditor aliases.
+5. Logout
+- Click the logout button to securely log out of your session.
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## Notes
+- **Database Initialization:** If the app fails due to missing data (e.g., users), you may need to insert records manually into PostgreSQL. Refer to the database schema you created and use dummy data for initial testing.
+- **Security:** JWT authentication is enabled; tokens are generated upon successful login and must be included in headers for protected API routes.
+- **Development vs Production:** Make sure to update the database connection details and JWT configuration when deploying to production.
